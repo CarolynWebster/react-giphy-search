@@ -45,7 +45,6 @@ export default class SearchBar extends Component {
       this.setState({
         suggestions: getSuggestions(value)
       });
-      console.log(this.state.suggestions)
     };
    
     // Autosuggest will call this function every time you need to clear suggestions. 

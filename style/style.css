@@ -18,7 +18,8 @@ input{
     text-align: left;
     width: 75%;
     margin: 0 auto;
-    text-decoration: none;
+    list-style-type: none;
+    padding: 5px;
 }
 
 .gif-display {
