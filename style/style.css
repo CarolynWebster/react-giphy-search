@@ -1,0 +1,43 @@
+.search-bar {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-bar input{
+    width: 75%;
+    border-style: none;
+    background-color: #000;
+    border: 1px solid #949494;
+    padding-left: 5px;
+    color: #fff;
+}
+
+.gif-display {
+    color: #949494;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center; 
+    border-radius: 3px;
+    border: 1px solid #949494;
+    max-width: 75%;
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.gif-display img {
+    width: 100%;
+    padding: 0;
+}
+
+body {
+    background-color: #000;
+}
+
+#submit {
+    margin-top: 10px;
+    background-color: #f90;
+    border-style: none;
+    border-radius: 3px;
+    color: #000;
+}
