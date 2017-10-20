@@ -13,6 +13,14 @@ input{
     color: #fff;
 }
 
+.react-autosuggest__suggestions-list {
+    background-color: #fff;
+    text-align: left;
+    width: 75%;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
 .gif-display {
     color: #949494;
     margin: 0 auto;

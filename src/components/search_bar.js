@@ -15,21 +15,20 @@ const getSuggestions = (value) => {
     );
 };
 
-// When suggestion is clicked, Autosuggest needs to populate the input 
+// When suggestion is clicked, Autosuggest will populate the input 
 const getSuggestionValue = suggestion => suggestion;
 
-// Use your imagination to render suggestions. 
+// Render the suggested words
 const renderSuggestion = suggestion => (
   <div>
     {suggestion}
   </div>
 );
 
-// make a new SearchBar class with functionality of a React Component
-class SearchBar extends Component {
+// make a new SearchBar Component
+export default class SearchBar extends Component {
 
-    //define the state of the component - only available to class based components
-    //called whenever instance is created (like __init__)
+    //define the state of the component
     constructor(props) {
         super(props);
 
@@ -41,26 +40,27 @@ class SearchBar extends Component {
     }
 
     // Autosuggest will call this function every time you need to update suggestions. 
-  // You already implemented this logic above, so just use it. 
-  onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: getSuggestions(value)
-    });
-  };
- 
-  // Autosuggest will call this function every time you need to clear suggestions. 
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
-  };
+    // You already implemented this logic above, so just use it. 
+    onSuggestionsFetchRequested = ({ value }) => {
+      this.setState({
+        suggestions: getSuggestions(value)
+      });
+      console.log(this.state.suggestions)
+    };
+   
+    // Autosuggest will call this function every time you need to clear suggestions. 
+    onSuggestionsClearRequested = () => {
+      this.setState({
+        suggestions: []
+      });
+    };
 
-  // event handler to listen for changes to input
+    // event handler to listen for changes to input
     onChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue
-    });
-  };
+      this.setState({
+        value: newValue
+      });
+    };
 
     // submit the value to the giphy search
     submitSearch(value) {
@@ -85,7 +85,7 @@ class SearchBar extends Component {
           onChange: this.onChange
         };
      
-        // Finally, render it! 
+        //render the autosuggest input bar and a GO button 
         return (
           <div className="search-bar">
           <Autosuggest
@@ -95,10 +95,8 @@ class SearchBar extends Component {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}/>
-            <input id="submit" type="submit" value="GO" />
+            <input id="submit" type="submit" value="GO" onClick={event => this.submitSearch(this.state.term)}/>
           </div>
         );
     } 
 }
-
-export default SearchBar;
