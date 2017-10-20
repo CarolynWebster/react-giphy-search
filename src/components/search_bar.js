@@ -73,15 +73,24 @@ export default class SearchBar extends Component {
             suggestions: getSuggestions(value)
         });
     };
+
+    //allow the user to hit enter instead of clicking GO
+    handleKeyPress = (event) => {
+      if(event.key == 'Enter'){
+        this.submitSearch(this.state.value)
+      }
+    };
  
     render() {
+        // unpack the value and suggestions
         const { value, suggestions } = this.state;
      
         // Autosuggest will pass through all these props to the input. 
         const inputProps = {
           placeholder: 'Search value',
           value,
-          onChange: this.onChange
+          onChange: this.onChange,
+          onKeyPress: this.handleKeyPress
         };
      
         //render the autosuggest input bar and a GO button 
@@ -94,7 +103,7 @@ export default class SearchBar extends Component {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}/>
-            <input id="submit" type="submit" value="GO" onClick={event => this.submitSearch(this.state.term)}/>
+            <input id="submit" type="submit" value="GO" onClick={event => this.submitSearch(this.state.value)}/>
           </div>
         );
     } 

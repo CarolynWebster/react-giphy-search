@@ -10,7 +10,7 @@ class App extends Component {
     constructor(props){
         super(props);
 
-        //this.gifSearch("");
+        this.gifSearch("");
 
         this.state = { 
             videos: [],
