@@ -17,4 +17,4 @@ Then start the node.js server
 npm start
 ```
 
-Navigate to [localhost:8080/](localhost:8080/)
+Navigate to [http://localhost:8080/](http://localhost:8080/)

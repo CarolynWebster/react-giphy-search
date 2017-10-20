@@ -42,7 +42,7 @@ class App extends Component {
         const  gifSearch = _.debounce((term) => {this.gifSearch(term) }, 500)
 
         return (
-            <div>
+            <div className='search_bar'>
                 <SearchBar onSearchSubmit={gifSearch} />
                 <GifDisplay gifID={this.state.gifID}/>
             </div>
